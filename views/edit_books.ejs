@@ -1,0 +1,24 @@
+<html>
+<% include parts/header.ejs %>
+<body>
+<% include parts/navBar.ejs %>
+<!-- Content -->
+<div class="container">
+    <% if (locals.error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (locals.books) { %>
+        <div class="row">
+        <% books.forEach(function(book){ %>
+            <div class="col-md-10">
+                <span class="pull-left bookname"><%= book.name%></span>
+                <button class="btn btn-danger pull-right delete">Delete</button>
+                <button class="btn btn-success pull-right edit">Edit</button>
+            </div>
+        <% }); %>
+        </div>
+    <% } %>
+</div> <!-- ./container -->
+<% include parts/footer_prim.ejs %>
+</body>
+</html>

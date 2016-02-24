@@ -1,0 +1,47 @@
+<html>
+<% include parts/header.ejs %>
+<body>
+<% include parts/navBar.ejs %>
+<!-- Content -->
+<div class="container">
+    <% if (locals.error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (locals.book) { %>
+        <form class="form-horizontal" role="form" action="/books/editform" method="post">
+            <h2>Edit book</h2>
+            <div class="form-group">
+                <label for="bookname" class="col-sm-3 control-label">Book Name</label>
+                <div class="col-sm-9">
+                    <input type="text" name="bookname" placeholder="Book Name" class="form-control" value=<%= book.name%> autofocus required>
+                </div>
+            </div>
+            <div class="form-group hidden">
+                <div class="col-sm-9">
+                    <input type="text" name="oldname" class="form-control" value=<%= book.name%>>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="author" class="col-sm-3 control-label">Author</label>
+                <div class="col-sm-9">
+                    <input type="text" name="author" placeholder="Author" class="form-control" value=<%= book.author%> required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="info" class="col-sm-3 control-label">Short Info</label>
+                <div class="col-sm-9">
+                    <input type="text" name="info" placeholder="Short information" class="form-control" value=<%= book.info%> required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                </div>
+            </div>
+        </form> <!-- /form -->
+        <% } %>
+
+</div> <!-- ./container -->
+<% include parts/footer_prim.ejs %>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<% include parts/header.ejs %>
+<body>
+<!-- Content -->
+<% include parts/navBar.ejs %>
+<div class="container">
+    <% if (locals.error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (locals.info) { %>
+        <div class="info alert-info"><%= info %></div>
+    <% } %>
+</div>
+<% include parts/footer_prim.ejs %>
+</body>
+</html>
